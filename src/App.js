@@ -9,6 +9,7 @@ import About from "./pages/About";
 import { AuthProvider } from "./context/AuthContext";
 import ShoppingCart from "./pages/ShoppingCart";
 import { CartProvider } from "./context/CartContext";
+import CheckoutPage from "./pages/CheckoutPage";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/About" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/shopping-cart" element={<ShoppingCart />} />
+          <Route path="/CheckoutPage" element={<CheckoutPage/>} />
 
         </Routes>
       </Router>
