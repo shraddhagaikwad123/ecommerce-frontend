@@ -1,16 +1,16 @@
-import React, { useState } from "react";
 
-const PaymentDetailsForm = ({ onNext, onBack }) => {
-  const [formData, setFormData] = useState({
-    cardName: "",
-    cardNumber: "",
-    expiryDate: "",
-    cvv: "",
-  });
 
+import React from "react";
+
+const PaymentDetailsForm = ({
+  onNext,
+  onBack,
+  paymentDetails,
+  setPaymentDetails,
+}) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevFormData) => ({
+    setPaymentDetails((prevFormData) => ({
       ...prevFormData,
       [name]: value,
     }));
@@ -19,16 +19,26 @@ const PaymentDetailsForm = ({ onNext, onBack }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Form validation
-    if (!formData.cardNumber.match(/^\d{16}$/)) {
+    if (!paymentDetails.cardNumber.match(/^\d{16}$/)) {
       alert("Card number must be 16 digit");
       return;
     }
-    console.log("Payment data:", formData);
+    console.log("Payment data:", paymentDetails);
     onNext();
   };
 
   return (
-    <div>
+    <div  style={{
+      border: "solid 1px black",
+      marginTop: "30px",
+      width: "50%",
+      display: "flex",
+      margin: "auto",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+    }}
+    >
       <h2>Payment Details</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -36,7 +46,7 @@ const PaymentDetailsForm = ({ onNext, onBack }) => {
           <input
             type="text"
             name="cardName"
-            value={formData.cardName}
+            value={paymentDetails.cardName}
             onChange={handleChange}
             required
           ></input>
@@ -46,7 +56,7 @@ const PaymentDetailsForm = ({ onNext, onBack }) => {
           <input
             type="text"
             name="cardNumber"
-            value={formData.cardNumber}
+            value={paymentDetails.cardNumber}
             onChange={handleChange}
             required
           ></input>
@@ -60,7 +70,7 @@ const PaymentDetailsForm = ({ onNext, onBack }) => {
             placeholder="MM/YY"
             title="Expiry date must be MM/YY"
             pattern="(0[1-9]|1[0-2])\/([0-9]{2})"
-            value={formData.expiryDate}
+            value={paymentDetails.expiryDate}
             onChange={handleChange}
           ></input>
         </div>
@@ -72,7 +82,7 @@ const PaymentDetailsForm = ({ onNext, onBack }) => {
             required
             pattern="\d{3}"
             title="CVV must be 3 digits"
-            value={formData.cvv}
+            value={paymentDetails.cvv}
             onChange={handleChange}
           ></input>
         </div>

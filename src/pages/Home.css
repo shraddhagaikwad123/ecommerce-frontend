@@ -1,0 +1,40 @@
+.home {
+    text-align: center;
+    background-image: url("../pages/download.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    height: 50vh;
+  }
+  
+  .home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 0;
+  }
+  
+  .home > * {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .advertise {
+    text-align: center;
+    height: 10vh;
+    background-color: cyan;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+  

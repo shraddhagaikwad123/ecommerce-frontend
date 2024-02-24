@@ -1,12 +1,16 @@
 import React from "react";
 import { useCart } from "../context/CartContext";
+import { useNavigate } from "react-router-dom";
+
 
 const ReviewSubmit = ({ shippingDetails, paymentDetails, onBack }) => {
   const { cart } = useCart();
+  const navigate=useNavigate();
 
   const handleSubmitOrder = () => {
     alert("Order Submitted");
     console.log("Order submitted:", { shippingDetails, paymentDetails });
+    navigate("/products");
   };
 
   return (

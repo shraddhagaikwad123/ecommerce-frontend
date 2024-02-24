@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import AddToCartButton from "../components/AddToCartButton";
+import Header from "../components/Header";
 
 const Products = () => {
   const [products, setProducts] = React.useState([]);
@@ -20,15 +21,9 @@ const Products = () => {
   }, []);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        gap: "20px",
-        justifyContent: "center",
-        padding: "20px",
-      }}
-    >
+   <>
+<Header name="products"/>
+<div>
       {products.map((product) => (
         <Link
           to={`/products/${product.id}`}
@@ -67,6 +62,7 @@ const Products = () => {
         </Link>
       ))}
     </div>
+    </> 
   );
 };
 

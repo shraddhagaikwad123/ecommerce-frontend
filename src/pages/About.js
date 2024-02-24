@@ -1,9 +1,10 @@
 import React from 'react'
+import Header from '../components/Header'
 
 const About = () => {
   return (
-    <div>About</div>
+    <Header name="About"/>
   )
 }
 
-export default About
+export default About;
