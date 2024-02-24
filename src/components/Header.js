@@ -1,6 +1,4 @@
 import React from 'react'
-import Products from '../pages/Products';
-import About from '../pages/About'
 
 const Header = (props) => {
   return (
